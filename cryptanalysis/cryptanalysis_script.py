@@ -106,7 +106,7 @@ for size in key_size:
     
     start_index=0
     inverse_exists = False
-    max_iteration = int(100 / (size*size))
+    max_iteration = int((len(partial_cipher_text) - (size*size))/size)+1
     number_of_iterations = 0
     
     
@@ -137,7 +137,7 @@ for size in key_size:
             
         except:
             inverse_exists = False
-            start_index += size*size
+            start_index += size
             plain_ascii = np.zeros(size*size,dtype=int)
             cipher_ascii = np.zeros(size*size,dtype=int)
             number_of_iterations +=1 
